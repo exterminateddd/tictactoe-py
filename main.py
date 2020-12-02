@@ -15,6 +15,10 @@ def get_col_arr(col):
     return [field[0][col], field[1][col], field[2][col]]
 
 
+def check_grid_exists(val):
+    return val in field[0] or val in field[1] or val in field[2]
+
+
 def choose_pos():
     # rand_col_ = random.choice([0, 1, 2])
     # rand_row_ = random.choice([0, 1, 2])
@@ -90,6 +94,10 @@ while True:
         print('Соперник походил')
         display_field()
         last_went = 1
+    if not check_grid_exists(' '):
+        print('============')
+        print("DEAD HEAT")
+        exit(9)
     if check_win_bot():
         print('============')
         print('BOT WON')
